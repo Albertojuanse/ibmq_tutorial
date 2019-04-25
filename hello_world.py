@@ -23,7 +23,7 @@ result = job.result()
 outputstate = result.get_statevector(circuit, decimals=3)
 print(outputstate)
 """
-"""
+
 backend_sim = BasicAer.get_backend('qasm_simulator')
 job_sim = execute(circuit, backend_sim, shots=1000)
 
@@ -32,7 +32,6 @@ result_sim = job_sim.result()
 counts = result_sim.get_counts(circuit)
 print(counts)
 """
-
 from qiskit.tools.monitor import job_monitor
 from qiskit.providers.ibmq import least_busy
 
@@ -51,6 +50,7 @@ job_monitor(job_exp)
 result_exp = job_exp.result()
 counts_exp = result_exp.get_counts(circuit)
 print(counts_exp)
+"""
 
 
 
