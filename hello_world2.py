@@ -15,8 +15,11 @@ circuit.h(quantum_register[0])
 
 circuit.measure(quantum_register, classical_register)
 
-backend = BasicAer.get_backend('statevector_simulator')
-job = execute(circuit, backend)
-result = job.result()
-outputstate = result.get_statevector(circuit, decimals=3)
-print(outputstate)
+
+backend_sim = BasicAer.get_backend('qasm_simulator')
+job_sim = execute(circuit, backend_sim, shots=1000)
+
+result_sim = job_sim.result()
+
+counts = result_sim.get_counts(circuit)
+print(counts)
